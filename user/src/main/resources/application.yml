@@ -1,0 +1,14 @@
+#server:
+#  port: 8090
+#
+#spring:
+#  application:
+#    name: user
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: http://127.0.0.1:8848
+#    sentinel:
+#      eager: true # 立即触发 sentinel
+#      transport:
+#        dashboard: localhost:8891

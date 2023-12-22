@@ -1,0 +1,30 @@
+server:
+  port: 18080
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://127.0.0.1:8848
+    gateway:
+      routes:
+        - id: users_router
+          # uri: http://localhost:9090 无负载均衡
+          uri: lb://user  # lb 表示负载均衡
+          predicates:
+            - Path=/user
+
+        - id: products_router
+          # uri: http://localhost:9091
+          uri: lb://product
+          predicates:
+            - Path=/product
+      globalcors: # 全局跨域处理
+        cors-configurations:
+          '[/**]':
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowedOriginPatterns: "*" # 2.4 以后版本不可以写成 allowedOrigin
+            allowCredentials: true

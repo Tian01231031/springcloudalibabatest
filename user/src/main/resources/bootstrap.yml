@@ -2,10 +2,11 @@
 spring:
   cloud:
     nacos:
-      server-addr: locahost:8848
+      discovery:
+        server-addr: locahost:8848
       config:
-        # 使用 nacos 中的哪个 namespace
-        namespace: demo1
+        # 使用 nacos 中的哪个 namespace 命名ID
+        namespace: 8f190ffd-6441-4f24-8492-bc22aae7099a
         # 使用 nacos 中的哪个组
         group: user
         # 使用 nacos 中的哪个 dataId  1.name+文件后缀 2.文件名+env+后缀
